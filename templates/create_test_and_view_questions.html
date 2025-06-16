@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Test and View Questions</title>
+</head>
+<body>
+    <h1>Create a New Test</h1>
+
+    <form method="POST" action="{{ url_for('create_test') }}">
+        <label for="test_name"><strong>Test Name:</strong></label><br>
+        <input type="text" id="test_name" name="test_name" required><br><br>
+
+        <table border="1" cellpadding="8" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Question</th>
+                    <th>Option A</th>
+                    <th>Option B</th>
+                    <th>Option C</th>
+                    <th>Option D</th>
+                    <th>Correct Answer</th>
+                    <th>Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for q in questions %}
+                <tr>
+                    <td><input type="checkbox" name="questions" value="{{ q[0] }}"></td>
+                    <td>{{ q[1] }}</td>
+                    <td>{{ q[2] }}</td>
+                    <td>{{ q[3] }}</td>
+                    <td>{{ q[4] }}</td>
+                    <td>{{ q[5] }}</td>
+                    <td>{{ q[6] }}</td>
+                    <td>{{ q[9] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+        <input type="submit" value="Create Test">
+    </form>
+    <br><br>
+    <a href="{{ url_for('add_question') }}">Add New Questions</a>
+    <br><br>
+    <a href="{{ url_for('welcome') }}">Back to Dashboard</a>
+</body>
+</html>

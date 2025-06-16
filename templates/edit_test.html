@@ -1,0 +1,30 @@
+<h2>Edit Test: {{ test[1] }}</h2>
+
+<form method="POST">
+    <label for="test_name"><strong>Test Name:</strong></label><br>
+    <input type="text" id="test_name" name="test_name" value="{{ test[1] }}" required><br><br>
+
+    <h3>Select Questions for This Test:</h3>
+    {% for q in all_questions %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+            <input type="checkbox" name="questions" value="{{ q[0] }}"
+                   {% if q[0] in selected_question_ids %}checked{% endif %}>
+            <strong>Q{{ loop.index }}: {{ q[1] }}</strong><br>
+            A) {{ q[2] }}<br>
+            B) {{ q[3] }}<br>
+            C) {{ q[4] }}<br>
+            D) {{ q[5] }}<br>
+            <em>Correct Option: {{ q[6] }} | Category: {{ q[7] }}</em>
+        </div>
+    {% endfor %}
+
+    <button type="submit">Update Test</button>
+</form>
+
+<br>
+<form action="{{ url_for('add_question') }}">
+    <button type="submit">Add New Question</button>
+</form>
+
+<br>
+<a href="{{ url_for('view_tests') }}">Back to All Tests</a>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit User</title>
+</head>
+
+    <h2>Edit User: {{ user[1] }}</h2> <!-- Assuming user[1] is username -->
+
+    <form method="POST">
+
+        <label>First Name:</label>
+        <input type="text" name="fname" value="{{ user[2] }}"><br><br>
+
+        <label>Last Name:</label>
+        <input type="text" name="lname" value="{{ user[3] }}"><br><br>
+
+        <label>Gender:</label>
+        <select name="gender">
+            <option value="Male" {% if user[4] == 'Male' %}selected{% endif %}>Male</option>
+            <option value="Female" {% if user[4] == 'Female' %}selected{% endif %}>Female</option>
+        </select><br><br>
+
+        <label>Birthday:</label>
+        <input type="date" name="birthday" value="{{ user[5] }}"><br><br>
+
+
+        <label>Role:</label>
+        <select name="role">
+            <option value="user" {% if user[8] == 'user' %}selected{% endif %}>User</option>
+            <option value="admin" {% if user[8] == 'admin' %}selected{% endif %}>Admin</option>
+        </select><br><br>
+
+        <button type="submit">Save</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('users') }}">Back to User List</a>
+
+</body>
+</html>

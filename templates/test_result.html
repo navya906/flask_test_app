@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Result</title>
+    <style>
+        .correct { color: green; }
+        .wrong { color: red; }
+    </style>
+</head>
+<body>
+    <h2>Test Result</h2>
+    <p><strong>Score:</strong> {{ score }} / {{ max_score }}</p>
+
+    <hr>
+    {% for res in results %}
+        <div>
+            <p><strong>Q:</strong> {{ res.question_text }}</p>
+            <ul>
+                {% for opt, val in res.options.items() %}
+                    <li>{{ opt }}. {{ val }}</li>
+                {% endfor %}
+            </ul>
+            <p>
+                <strong>Your Answer:</strong>
+                <span class="{{ 'correct' if res.is_correct else 'wrong' }}">
+                    {{ res.user_answer or "Not Answered" }}
+                </span><br>
+                <strong>Correct Answer:</strong> {{ res.correct_answer }}
+            </p>
+            <hr>
+        </div>
+    {% endfor %}
+
+    <a href="{{ url_for('welcome') }}">Return to Home</a>
+</body>
+</html>

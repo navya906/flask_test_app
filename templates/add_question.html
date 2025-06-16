@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Question</title>
+</head>
+<body>
+    <h2>Add New Question:</h2>
+    <form method="post">
+        <label>Question:</label><br>
+        <textarea name="question_text" rows="4" cols="50" required></textarea><br><br>
+
+        <label>Option A:</label><br>
+        <input type="text" name="a" required><br>
+
+        <label>Option B:</label><br>
+        <input type="text" name="b" required><br>
+
+        <label>Option C:</label><br>
+        <input type="text" name="c" required><br>
+
+        <label>Option D:</label><br>
+        <input type="text" name="d" required><br>
+
+        <label>Correct Option (A/B/C/D):</label><br>
+        <input type="text" name="correct_option" maxlength="1" required><br>
+
+        <label>Category (optional):</label><br>
+        <input type="text" name="category"><br><br>
+
+        <label>Marks:</label><br>
+        <input type="number" name="marks" min="1" value="1" required><br><br>
+        
+
+        <button type="submit">Add Question</button>
+    </form>
+    <br>
+    <a href="{{ url_for('welcome') }}">Back</a>
+</body>
+</html>

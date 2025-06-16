@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+</head>
+<body>
+    <h2>Welcome, {{username}}!</h2>
+
+    {% if role == 'admin' %}
+        <p>You are logged in as <strong>Admin</strong>.</p>
+        <a href="{{ url_for('users') }}"><button>View All Users</button></a>
+        <br><br>
+        <a href="{{ url_for('add_question') }}"><button>Add Question</button></a>
+        <br><br>
+        <a href="{{ url_for('create_test') }}"><button>Create Test</button></a>
+        <br><br>
+        <a href="{{ url_for('view_tests') }}"><button>View Tests</button></a>
+    
+    {% elif role == 'user' %}
+    {% if approved == 1 %}
+        <p>You are logged in as a <strong>User</strong>.</p>
+        <br><br>
+        <h3>Available Tests:</h3>
+        <ul>
+            {% for test in tests %}
+                <li>
+                    {{ test[1] }}  <!-- test name -->
+                    <a href="{{ url_for('take_test', test_id=test[0]) }}"><button>Take Test</button></a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Your account is pending approval... please wait.</p>
+    {% endif %}
+{% endif %}
+
+    
+
+    <br><br>
+    <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+</body>
+</html>
