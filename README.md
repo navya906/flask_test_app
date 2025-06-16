@@ -1,7 +1,4 @@
-📄 README.md
-markdown
-Copy
-Edit
+
 # Flask Test App
 
 This is a simple Flask-based web application that includes user authentication, role-based access, test creation, and test-taking functionality.
@@ -34,43 +31,36 @@ This is a simple Flask-based web application that includes user authentication, 
    ```bash
    git clone https://github.com/navya906/flask_test_app.git
    cd flask_test_app
-Create a virtual environment and activate it
+   
+2. **Create a virtual environment and activate it**
+  ```bash
+  python -m venv venv
+  venv\Scripts\activate   # On Windows
+  ```
 
-bash
-Copy
-Edit
-python -m venv venv
-venv\Scripts\activate   # On Windows
-Install dependencies
+3. **Install dependencies**
+  ```bash
+  pip install -r requirements.txt
+  ```
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Set up MySQL database
+4. **Set up MySQL database**
 
-Create a database (e.g., flask_test_db)
+- Create a database (e.g., `flask_test_db`)
+- Update `app.config` in `app.py` with your database credentials
+- Use phpMyAdmin to create required tables or import from a SQL file (if provided)
 
-Update app.config in app.py with your database credentials
+5. **Run the Flask app**
+  ```bash
+  python app.py
+  ```
 
-Use phpMyAdmin to create required tables or import from a SQL file (if provided)
+6. **Open in browser**
+  ```bash
+  http://127.0.0.1:5000/
+  ```
 
-Run the Flask app
-
-bash
-Copy
-Edit
-python app.py
-Open in browser
-
-cpp
-Copy
-Edit
-http://127.0.0.1:5000/
-📂 Folder Structure
-cpp
-Copy
-Edit
+## 📂 Folder Structure
+```
 flask_test_app/
 ├── app.py
 ├── templates/
@@ -80,6 +70,8 @@ flask_test_app/
 ├── static/
 ├── requirements.txt
 └── README.md
-🙋‍♀️ Author
+```
+
+## 🙋‍♀️ Author
 Navya Ghatta
-📫 LinkedIn
+https://www.linkedin.com/in/navya-g-a97051314/
